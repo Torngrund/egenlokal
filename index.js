@@ -11,7 +11,7 @@ window.fsAttributes.push([
     const autoCompleteJS = new autoComplete({
       selector: "#autoComplete",
       data: {
-        src: cities;
+        src: cities
     }
   });
     autoCompleteJS.start();
