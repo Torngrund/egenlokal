@@ -8,10 +8,17 @@ window.fsAttributes.push([
       '[wb-autocomplete="cities"]'
     );
 
+    const citiesSet = new Set();
+    cities.forEach((cities) => {
+      citiesSet.add(cities.textContent);
+    });
+
+    const uniqueCitiesArray = [...citiesSet];
+
     const autoCompleteJS = new autoComplete({
       selector: "#autoComplete",
       data: {
-        src: cities
+        src: uniqueCitiesArray
     }
   });
     autoCompleteJS.start();
