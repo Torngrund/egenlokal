@@ -21,7 +21,6 @@ window.fsAttributes.push([
         src: uniqueCitiesArray
       },
       name: "auto-complete",
-      debounce: 300,
       searchEngine: "loose",
       threshold: 1,
       resultItem: {
