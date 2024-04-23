@@ -19,7 +19,18 @@ window.fsAttributes.push([
       selector: "#autoComplete",
       data: {
         src: uniqueCitiesArray
-    }
+      },
+      threshold: 1,
+      resultItem: {
+        highlight: true
+      },
+      events: {
+        input: {
+          selection: (event) => {
+            const selection = event.detail.selection.value;
+            autoCompleteJS.input.value = selection;
+        }
+      }
   });
     autoCompleteJS.start();
   }
