@@ -20,6 +20,7 @@ window.fsAttributes.push([
       data: {
         src: uniqueCitiesArray
       },
+      name: "auto-complete",
       threshold: 1,
       resultItem: {
         highlight: true
