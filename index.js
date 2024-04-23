@@ -38,10 +38,10 @@ window.fsAttributes.push([
 
             const simulatedEvent = new Event("input", { bubbles: true });
             autoCompleteJS.input.dispatchEvent(simulatedEvent);
-          }
-        },
-        focus: () => {
+          },
+          focus: () => {
               if (autoCompleteJS.input.value.length) autoCompleteJS.start();
+        }
         }
       }
   });
