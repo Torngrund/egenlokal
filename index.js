@@ -29,6 +29,7 @@ window.fsAttributes.push([
           selection: (event) => {
             const selection = event.detail.selection.value;
             autoCompleteJS.input.value = selection;
+          }
         }
       }
   });
