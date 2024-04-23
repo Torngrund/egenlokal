@@ -22,7 +22,7 @@ window.fsAttributes.push([
       },
       name: "auto-complete",
       searchEngine: "loose",
-      threshold: 1,
+      threshold: 0,
       resultItem: {
         highlight: true
       },
