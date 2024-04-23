@@ -23,7 +23,7 @@ window.fsAttributes.push([
       name: "auto-complete",
       searchEngine: "loose",
       threshold: 0,
-      resultsList {
+      resultsList: {
         maxResults: undefined
       },
       submit: true,
