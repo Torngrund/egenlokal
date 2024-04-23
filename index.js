@@ -23,6 +23,7 @@ window.fsAttributes.push([
       name: "auto-complete",
       searchEngine: "loose",
       threshold: 0,
+      submit: true,
       resultItem: {
         highlight: true
       },
