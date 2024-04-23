@@ -30,7 +30,7 @@ window.fsAttributes.push([
             const selection = event.detail.selection.value;
             autoCompleteJS.input.value = selection;
 
-            const simluatedEvent = new Event("input", { bubbles: true });
+            const simulatedEvent = new Event("input", { bubbles: true });
             autoCompleteJS.input.dispatchEvent(simulatedEvent);
           }
         }
