@@ -31,15 +31,6 @@ window.fsAttributes.push([
         highlight: true
       },
       events: {
-    input: {
-        focus() {
-            const inputValue = autoCompleteJS.input.value;
-
-            if (inputValue.length) autoCompleteJS.start();
-        },
-    },
-},
-      events: {
         input: {
           selection: (event) => {
             const selection = event.detail.selection.value;
@@ -48,6 +39,9 @@ window.fsAttributes.push([
             const simulatedEvent = new Event("input", { bubbles: true });
             autoCompleteJS.input.dispatchEvent(simulatedEvent);
           }
+        },
+        focus: () => {
+              if (autoCompleteJS.input.value.length) autoCompleteJS.start();
         }
       }
   });
