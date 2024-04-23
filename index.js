@@ -22,7 +22,10 @@ window.fsAttributes.push([
       },
       name: "auto-complete",
       searchEngine: "loose",
-      threshold: 1,
+      threshold: 0,
+      resultsList {
+        maxResults: undefined
+      },
       submit: true,
       resultItem: {
         highlight: true
