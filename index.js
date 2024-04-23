@@ -31,6 +31,15 @@ window.fsAttributes.push([
         highlight: true
       },
       events: {
+    input: {
+        focus() {
+            const inputValue = autoCompleteJS.input.value;
+
+            if (inputValue.length) autoCompleteJS.start();
+        },
+    },
+},
+      events: {
         input: {
           selection: (event) => {
             const selection = event.detail.selection.value;
