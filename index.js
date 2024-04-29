@@ -2,18 +2,16 @@ window.fsAttributes = window.fsAttributes || [];
 window.fsAttributes.push([
   "cmsfilter",
   (listInstances) => {
-  
-    // select all the cities
-    const cities = document.querySelectorAll(
-      '[wb-autocomplete="cities"]'
-    );
-
-    const citiesSet = new Set();
-    cities.forEach((cities) => {
-      citiesSet.add(cities.textContent);
+    // Select all the cities
+    const cities = document.querySelectorAll('[wb-autocomplete="cities"]');
+    
+    // Initialize an empty array to store city names
+    const uniqueCitiesArray = [];
+    
+    // Iterate over cities and add their text content to the array
+    cities.forEach((city) => {
+      uniqueCitiesArray.push(city.textContent);
     });
-
-    const uniqueCitiesArray = [...citiesSet];
 
     const autoCompleteJS = new autoComplete({
       selector: "#autoComplete",
