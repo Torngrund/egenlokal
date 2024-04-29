@@ -13,42 +13,39 @@ window.fsAttributes.push([
     cities.forEach((city, index) => {
       const cityName = city.textContent;
       const projectName = projects[index].textContent;
-      uniqueCitiesArray.push(`${cityName} - ${projectName}`);
+      uniqueCitiesArray.push({ city: cityName, project: projectName });
     });
 
-    // Sort the array alphabetically
-    uniqueCitiesArray.sort();
+    // Sort the array alphabetically based on city names
+    uniqueCitiesArray.sort((a, b) => a.city.localeCompare(b.city));
 
     const autoCompleteJS = new autoComplete({
       selector: "#autoComplete",
       data: {
-        src: uniqueCitiesArray
+        src: uniqueCitiesArray,
+        key: ["city"],
+        cache: false
       },
-      name: "auto-complete",
-      searchEngine: "loose",
-      threshold: 0,
       resultsList: {
-        maxResults: undefined
+        render: true,
+        container: (source, query) => {
+          source.innerHTML = `<ul class="autocomplete-results"></ul>`;
+        },
+        destination: document.querySelector("#autoComplete"),
+        position: "afterend",
+        element: "ul",
+        navigation: true
       },
-      submit: true,
       resultItem: {
-        highlight: true
+        content: (data, source) => {
+          source.innerHTML = `<span>${data.match}</span><span class="project-text">${data.value.project}</span>`;
+        },
+        element: "li"
       },
-      events: {
-        input: {
-          selection: (event) => {
-            const selection = event.detail.selection.value;
-            autoCompleteJS.input.value = selection;
-
-            const simulatedEvent = new Event("input", { bubbles: true });
-            autoCompleteJS.input.dispatchEvent(simulatedEvent);
-          },
-          focus: () => {
-              if (autoCompleteJS.input.value.length) autoCompleteJS.start();
-        }
-        }
+      highlight: true,
+      onSelection: (feedback) => {
+        document.querySelector("#autoComplete").blur();
       }
-  });
-    autoCompleteJS.start();
+    });
   }
 ]);
