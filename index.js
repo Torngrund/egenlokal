@@ -38,9 +38,10 @@ window.fsAttributes.push([
       },
       resultItem: {
         content: (data, source) => {
-          source.innerHTML = `<span>${data.match}</span><span class="project-text">${data.value.project}</span>`;
-        },
-        element: "li"
+          const listItem = document.createElement('li'); // Create a new <li> element
+          listItem.innerHTML = `<span>${data.match}</span><span class="project-text">${data.value.project}</span>`;
+          source.appendChild(listItem); // Append the new <li> element to the source element
+        }
       },
       highlight: true,
       onSelection: (feedback) => {
